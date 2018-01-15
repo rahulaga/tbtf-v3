@@ -48,7 +48,7 @@ public class UserResource {
 	public ResponseEntity<List<HttpUser>> getUserSearch(@RequestParam(value="firstName", required=false) String firstName,
 			@RequestParam(value="lastName", required=false) String lastName) {
 		logger.info("user search firstName=" + firstName + " lastName=" + lastName);
-		Iterable<User> found = userService.getUsers(firstName, lastName);
+		Iterable<UserImpl> found = userService.getUsers(firstName, lastName);
 		List<HttpUser> returnList = new ArrayList<>();
 		for (User user : found) {
 			returnList.add(new HttpUser(user));

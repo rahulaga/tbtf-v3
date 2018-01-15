@@ -1,18 +1,32 @@
 package com.irahul.tbtf.entity.impl;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.irahul.tbtf.entity.User;
 
+@Entity
+@Table(name = "users")
 public class UserImpl implements User {
+	@Id
+	@Column(name = "idusers")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name = "first_name")
 	private String firstName;
+
+	@Column(name = "last_name")
 	private String lastName;
+
+	@Column(name = "pin")
 	private String pin;
 
 	public UserImpl() {
-	}
-
-	public UserImpl(long id) {
-		this.id = id;
 	}
 
 	@Override

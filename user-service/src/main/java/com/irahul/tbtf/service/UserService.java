@@ -1,6 +1,7 @@
 package com.irahul.tbtf.service;
 
 import com.irahul.tbtf.entity.User;
+import com.irahul.tbtf.entity.impl.UserImpl;
 
 public interface UserService {
 
@@ -17,7 +18,7 @@ public interface UserService {
 	 * @param lastName
 	 * @return Empty list is returned if none found
 	 */
-	Iterable<User> getUsers(String firstName, String lastName);
+	Iterable<UserImpl> getUsers(String firstName, String lastName);
 
 	boolean isATMPinValid(long userId, String pin);
 }
