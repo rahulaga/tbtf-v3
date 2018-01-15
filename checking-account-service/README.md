@@ -7,3 +7,6 @@ Notes:
 *Each microservice is defined in its own Maven project
 *Using long for ids. Consider strongly typing them
 *Partially implemented services and tests
+*Using Crud repositories to access MySQL DB
+*Using RestTemplate to access user microservice
+

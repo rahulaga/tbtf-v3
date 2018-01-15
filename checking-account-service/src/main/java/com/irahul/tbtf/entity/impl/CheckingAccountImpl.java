@@ -1,13 +1,35 @@
 package com.irahul.tbtf.entity.impl;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.irahul.tbtf.entity.CheckingAccount;
 
+@Entity
+@Table(name="checking_account")
 public class CheckingAccountImpl implements CheckingAccount {
+	@Id
+	@Column(name="id_account")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(name="users_idusers")
 	private long ownerId;
+	
+	@Column//eg: no need to specify name since matches column but I prefer to be explicit
 	private int balance;
+	
+	@Column(name="available_balance")
 	private int availableBalance;
+	
+	@Column(name="currency")
 	private String currency;
+	
+	@Column(name="routing_number")
 	private long routingNumber;
 
 	public CheckingAccountImpl(long id) {

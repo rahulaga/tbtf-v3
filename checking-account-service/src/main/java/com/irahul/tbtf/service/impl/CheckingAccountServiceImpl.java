@@ -2,20 +2,31 @@ package com.irahul.tbtf.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.irahul.tbtf.entity.CheckingAccount;
 import com.irahul.tbtf.entity.impl.CheckingAccountImpl;
+import com.irahul.tbtf.externalresource.UserServiceClient;
+import com.irahul.tbtf.repository.CheckingAccountRepository;
 import com.irahul.tbtf.service.CheckingAccountService;
+import com.irahul.tbtf.service.exception.InvalidFieldException;
 
 @Service
 public class CheckingAccountServiceImpl implements CheckingAccountService {
+private Logger logger = LoggerFactory.getLogger(getClass());
+	
+	@Autowired
+	private CheckingAccountRepository checkingAccountRepository;
+	
+	@Autowired
+	private UserServiceClient userServiceClient;
 
 	@Override
-	public CheckingAccount getAccount(long accountId) {
-		CheckingAccountImpl account = new CheckingAccountImpl(accountId);
-		// TODO Auto-generated method stub
-		return account;
+	public CheckingAccount getAccount(long accountId) {		
+		return checkingAccountRepository.findOne(accountId);
 	}
 
 	@Override
@@ -42,11 +53,17 @@ public class CheckingAccountServiceImpl implements CheckingAccountService {
 	}
 
 	@Override
-	public CheckingAccount addAccount(CheckingAccount accountToCreate) {
+	public CheckingAccount addAccount(CheckingAccount accountToCreate) {		
 		//need to validate ownerId with User Service
+		if(accountToCreate.getOwnerId()<=0){
+			throw new InvalidFieldException("Invalid owner id");
+		}
+		logger.info("Calling user service for ownerId="+accountToCreate.getOwnerId());
+		if(!userServiceClient.userExists(accountToCreate.getOwnerId())){
+			throw new InvalidFieldException("User not found");
+		}
 		
-		
-		// TODO Auto-generated method stub
-		return accountToCreate;
+		CheckingAccountImpl impl = (CheckingAccountImpl)accountToCreate;		
+		return checkingAccountRepository.save(impl);
 	}
 }
