@@ -9,4 +9,4 @@ Notes:
 *Partially implemented services and tests
 *Using Crud repositories to access MySQL DB
 *Using RestTemplate to access user microservice
-
+*Connecting to Config service and Discovery

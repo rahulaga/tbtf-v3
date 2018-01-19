@@ -16,14 +16,14 @@ import com.irahul.tbtf.service.exception.InvalidFieldException;
 
 @Service
 public class CheckingAccountServiceImpl implements CheckingAccountService {
-private Logger logger = LoggerFactory.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private CheckingAccountRepository checkingAccountRepository;
 	
 	@Autowired
 	private UserServiceClient userServiceClient;
-
+	
 	@Override
 	public CheckingAccount getAccount(long accountId) {		
 		return checkingAccountRepository.findOne(accountId);
