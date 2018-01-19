@@ -8,3 +8,4 @@ Notes:
 *Using long for ids. Consider strongly typing them
 *Partially implemented services and tests
 *Using Crud repositories to access MySQL DB
+*Connecting to Config service and Discovery

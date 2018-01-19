@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
 import ch.qos.logback.access.tomcat.LogbackValve;
@@ -13,6 +14,7 @@ import ch.qos.logback.access.tomcat.LogbackValve;
  *
  */
 @SpringBootApplication
+@EnableEurekaClient
 public class UserServiceApplication {
 
 	public static void main(String[] args) {
