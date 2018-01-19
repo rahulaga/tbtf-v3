@@ -1,0 +1,44 @@
+{
+	"variables": [],
+	"info": {
+		"name": "config-service",
+		"_postman_id": "48d34b7f-5bdd-5d08-efd1-cedb52926915",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8888/checking-account-service/dev",
+			"request": {
+				"url": "http://localhost:8888/checking-account-service/dev",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/checking-account-service",
+			"request": {
+				"url": "http://localhost:8888/checking-account-service/default",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8888/application/default",
+			"request": {
+				"url": "http://localhost:8888/application/default",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
