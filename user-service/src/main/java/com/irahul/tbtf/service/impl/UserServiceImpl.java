@@ -78,6 +78,15 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByFirstNameContainingAndLastNameContaining(firstName, lastName);		
 	}
 	
+	@Override
+	public void deleteUser(long userId) {
+		User found = userRepository.findOne(userId);
+		if (found == null) {
+			throw new TBTFException(ErrorCode.NOT_FOUND, "User not found");
+		}
+		userRepository.delete(userId);
+	};
+	
 	private String md5base64(String pin){
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");

@@ -55,6 +55,13 @@ public class UserResource {
 		}
 		return new ResponseEntity<>(returnList, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/{userId}", method = RequestMethod.DELETE)
+	public ResponseEntity<HttpUser> deleteUserById(@PathVariable("userId") long userId) {
+		logger.info("deleting user by id:" + userId);
+		userService.deleteUser(userId);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 	/**
 	 * Not pushing this into business layer. Could be a util as well

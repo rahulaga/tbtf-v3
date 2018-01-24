@@ -21,4 +21,6 @@ public interface UserService {
 	Iterable<UserImpl> getUsers(String firstName, String lastName);
 
 	boolean isATMPinValid(long userId, String pin);
+
+	void deleteUser(long userId);
 }
